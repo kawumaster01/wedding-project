@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RSVPController extends Controller
 {
@@ -19,6 +20,25 @@ class RSVPController extends Controller
     Guest::create($request->all());
 
     return back()->with('success', 'Thank you for your RSVP 💍');
+}
+
+
+//download invitation
+
+
+
+public function downloadInvite()
+{
+    $data = [
+        'groom' => 'Safiyan (Kawumaster)',
+        'bride' => 'Asmau (Nanah)',
+        'date' => '11 July 2026',
+        'venue' => 'Itas Gadau, Bauchi, Nigeria'
+    ];
+
+    $pdf = Pdf::loadView('invite', $data);
+
+    return $pdf->download('wedding-invitation.pdf');
 }
 
 }
