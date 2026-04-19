@@ -7,15 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guest extends Model
 {
-	use HasFactory;
+    use HasFactory;
     protected $fillable = [
-    'name',
-    'email',
-    'phone',
-    'guests',
-    'meal',
-    'message'
-];
-
+        'name',
+        'email',
+        'phone',
+        'guests',
+        'meal',
+        'message',
+        'wish',
+        'token'
+    ];
 }
+
 

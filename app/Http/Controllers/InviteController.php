@@ -28,25 +28,25 @@ $img = $manager->read(public_path('images/invite-bg.png'));
     $width = $img->width();
 
     // TITLE
-    $img->text('Wedding Invitation', $width / 2, 220, function (FontFactory $font) {
+    $img->text('Wedding Invitation', $width / 2, 320, function (FontFactory $font) {
         $font->filename(public_path('fonts/ArianaVioleta-dz2K.ttf'));
-        $font->size(120);
+        $font->size(210);
         $font->color('#d4af37');
         $font->align('center');
     });
 
     // GUEST NAME
-    $img->text('Dear Mal/Alh', $width / 2, 300, function (FontFactory $font) {
+    $img->text('Dear Mal/Alh', $width / 2, 600, function (FontFactory $font) {
         $font->filename(public_path('fonts/HappySwirly-KVB7l.ttf'));
-        $font->size(50);
+        $font->size(70);
         $font->color('#000');
         $font->align('center');
     });
 
     // COUPLE
-    $img->text('Safiyan 💖 Asmau', $width / 2, 450, function (FontFactory $font) {
+    $img->text('Safiyan 💖 Asmau', $width / 2, 900, function (FontFactory $font) {
         $font->filename(public_path('fonts/LoveDays-2v7Oe.ttf'));
-        $font->size(60);
+        $font->size(100);
         $font->color('#d63384');
         $font->align('center');
     });
