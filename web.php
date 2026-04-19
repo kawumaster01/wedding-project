@@ -1,0 +1,1 @@
+Route::post('/submit-wish', [\n    'uses' => 'InvitationController@submitWish'\n]);\n\nRoute::get('/download-card/{token}', [\n    'uses' => 'InvitationController@downloadCard'\n]);
