@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RSVPController;
 use App\Models\Guest;
+use App\Http\Controllers\InviteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,15 @@ use App\Models\Guest;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+
+//image download
+Route::get('/download-image', [RSVPController::class, 'downloadImageInvite']); 
+
+Route::get('/view-card-image', [InviteController::class, 'ViewImageInvite']);
 
 // RSVP submission
 Route::post('/rsvp', [RSVPController::class, 'store']);

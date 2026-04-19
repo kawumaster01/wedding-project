@@ -15,9 +15,19 @@
     <p class="mt-4 text-2xl">We're Getting Married!</p>
     <p class="text-lg mt-2">11 July 2026</p>
 	
+    <!--download pdf and image-->
+<a href="/view-card-image"
+   class="bg-red-600 text-white px-6 py-3 rounded mt-4 inline-block">
+   view Card 
+</a>
+    <a href="/download-image"
+   class="bg-blue-600 text-white px-6 py-3 rounded mt-4 inline-block">
+   Download Image Invite 
+</a>
+ 
 	<a href="/download-invite"
    class="bg-green-600 text-white px-6 py-3 rounded mt-6 inline-block">
-   Download Invitation Card ??
+   Download Invitation Card 
 </a>
 </section>
 

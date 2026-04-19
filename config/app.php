@@ -25,6 +25,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+
+
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...

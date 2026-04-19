@@ -16,7 +16,8 @@
 
         h1 {
             color: #d63384;
-            font-size: 40px;
+            font-size: 60px;
+            font-style: italic;
         }
 
         .names {
