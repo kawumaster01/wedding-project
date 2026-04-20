@@ -68,3 +68,7 @@ $img = $manager->read(public_path('images/invite-bg.png'));
 
 
 }
+
+
+//////
+

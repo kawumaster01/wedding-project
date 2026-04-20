@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RSVPController;
 use App\Models\Guest;
 use App\Http\Controllers\InviteController;
+use App\Http\Controllers\AdminController;
 
 // Home page
 Route::get('/', function () {
@@ -29,10 +30,25 @@ Route::get('/download-invite', [RSVPController::class, 'downloadInvite']);
 // Personalized invite with token
 Route::get('/invite/{token}', [RSVPController::class, 'guestInvite']);
 
-// Admin dashboard (protected)
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', function () {
-        $guests = Guest::latest()->get();
-        return view('admin', compact('guests'));
-    });
+// Admin dashboard 
+
+    // Route::get('/admin', [AdminController::class, 'index']);
+
+Route::match(['get', 'post'], '/admin', [AdminController::class, 'index'])
+    ->middleware('admin.password');
+    Route::delete('/guest/{id}', [AdminController::class, 'destroy']);
+
+Route::get('/admin/logout', function () {
+    session()->forget('admin_authenticated');
+    return redirect('/admin');
 });
+
+
+
+
+
+
+
+// Route::get('/login', function () {
+//     return "Login page coming soon...";
+// })->name('login');

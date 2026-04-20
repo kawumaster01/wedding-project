@@ -53,23 +53,23 @@ class RSVPController extends Controller
         $width = $img->width();
 
         // TITLE
-        $img->text('Wedding Invitation', $width / 2, 220, function (FontFactory $font) {
+        $img->text('Wedding Invitation', $width / 2, 320, function (FontFactory $font) {
             $font->filename(public_path('fonts/ArianaVioleta-dz2K.ttf'));
-            $font->size(120);
+            $font->size(420);
             $font->color('#d4af37');
             $font->align('center');
         });
 
         // PERSONALIZED GUEST NAME
-        $img->text('Dear ' . $guestName, $width / 2, 300, function (FontFactory $font) {
+        $img->text('Dear ' . $guestName, $width / 2, 500, function (FontFactory $font) {
             $font->filename(public_path('fonts/HappySwirly-KVB7l.ttf'));
-            $font->size(50);
-            $font->color('#000');
+            $font->size(70);
+            $font->color('white');
             $font->align('center');
         });
 
         // COUPLE
-        $img->text('Safiyan 💖 Asmau', $width / 2, 450, function (FontFactory $font) {
+        $img->text('Kawumaster 💖 Nanah', $width / 2, 450, function (FontFactory $font) {
             $font->filename(public_path('fonts/LoveDays-2v7Oe.ttf'));
             $font->size(60);
             $font->color('#d63384');
@@ -85,7 +85,7 @@ class RSVPController extends Controller
         });
 
         // Download with guest name in filename
-        $filename = str_replace(' ', '-', $guestName) . '-wedding-invite.png';
+        $filename = str_replace(' ', '-', $guestName = 'Safiyanu') . '-wedding-invite.png';
         
         return response($img->toPng(), 200)
             ->header('Content-Type', 'image/png')
@@ -108,18 +108,20 @@ class RSVPController extends Controller
     //pdf download invitation/////
 
     public function downloadInvite()
-    {
-        $data = [
-            'groom' => 'Safiyan (Kawumaster)',
-            'bride' => 'Asmau (Nanah)',
-            'date' => '11 July 2026',
-            'venue' => 'Itas Gadau, Bauchi, Nigeria'
-        ];
+{
+    $data = [
+        'groom' => 'Safiyan',
+        'bride' => 'Asmau',
+        'date' => '11.07.2026',
+        'venue' => 'Itas Gadau Bauchi Bauchi State',
+    ];
+        
 
-        $pdf = Pdf::loadView('invite', $data);
+    $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('invite', $data)
+        ->setPaper('A4', 'portrait');
 
-        return $pdf->download('wedding-invitation.pdf');
-    }
+    return $pdf->download('wedding-invite.pdf');
+}
 
     //image download/////
 

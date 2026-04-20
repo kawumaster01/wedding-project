@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safiyan 💖 Asmau Wedding</title>
+    <title>Safiyanu 💖 Asmau Wedding</title>
 
     @vite('resources/css/app.css')
 
@@ -22,11 +22,12 @@
     <div class="relative z-10">
         <h1 class="text-6xl md:text-7xl"
             style="font-family: 'Great Vibes', cursive;">
-            Kawumster 💖 Asmau
+            Kawumster 💖 Nanah
         </h1>
 
         <p class="mt-4 text-2xl">We're Getting Married</p>
-        <p class="text-lg mt-2">11 July 2026</p>
+        <p class="text-lg mt-2">on</p><br>
+        <p class="text-2xl md:text-5xl" style="font-family: 'Great Vibes', cursive;">11- July- 2026</p>
     </div>
 </section>
 
@@ -80,7 +81,7 @@
 
     <a href="/download-image"
        class="bg-blue-600 text-white px-6 py-3 rounded">
-       Download Invitation card 
+       Download General Invitation
     </a>
 
     <a href="/download-invite"
@@ -114,7 +115,7 @@
 <div id="popup"
      class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center">
 
-    <div class="bg-white p-6 rounded text-center w-80">
+    <div class="bg-white p-8 rounded text-center w-80">
 
         <h2 class="text-2xl mb-4">Thank You 💍</h2>
 
@@ -122,7 +123,7 @@
 
         <a id="downloadBtn"
            class="bg-green-600 text-white px-5 py-2 mt-4 inline-block rounded">
-           Download Your Card 📥
+           Download Your Invitation 📥
         </a>
 
         <br><br>
