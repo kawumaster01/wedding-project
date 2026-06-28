@@ -2,42 +2,54 @@ FROM php:8.2-apache
 
 # Install system packages and PHP extensions
 RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    libpq-dev \
-    zip \
-    unzip \
     git \
     curl \
+    unzip \
+    zip \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libpq-dev \
+    libzip-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo pdo_mysql pdo_pgsql gd
+    && docker-php-ext-install \
+        pdo \
+        pdo_mysql \
+        pdo_pgsql \
+        gd \
+        zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Enable Apache rewrite
 RUN a2enmod rewrite
 
-# Set Apache document root to Laravel's public folder
+# Laravel public folder
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
-    /etc/apache2/sites-available/*.conf && \
-    sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' \
-    /etc/apache2/apache2.conf \
-    /etc/apache2/conf-available/*.conf
+    /etc/apache2/sites-available/*.conf \
+    /etc/apache2/conf-available/*.conf \
+    /etc/apache2/apache2.conf
 
-# Copy project
-COPY . /var/www/html/
+# Copy application
+COPY . /var/www/html
 
 WORKDIR /var/www/html
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Install Laravel dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Install PHP dependencies
+RUN composer install \
+    --no-dev \
+    --prefer-dist \
+    --optimize-autoloader \
+    --no-interaction
 
-# Set permissions
-RUN chown -R www-data:www-data storage bootstrap/cache \
+# Laravel permissions
+RUN mkdir -p storage bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
 EXPOSE 80
