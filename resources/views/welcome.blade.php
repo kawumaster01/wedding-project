@@ -73,7 +73,7 @@
 
 <!-- ACTION BUTTONS -->
 
-<div class="mt-8 space-x-4">
+<div class="mt-4 space-x-2 gap-2">
  <a href="/view-card-image"
        class="bg-green-600 text-white px-6 py-3 rounded">
        View card Image
