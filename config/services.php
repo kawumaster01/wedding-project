@@ -31,4 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'awarri' => [
+    'base_url' => env(
+        'AWARRI_BASE_URL',
+        'https://african-voice-backend-dev-775818477993.us-central1.run.app'
+    ),
+    'api_key' => env('AWARRI_API_KEY'),
+],
+
 ];

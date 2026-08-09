@@ -5,6 +5,7 @@ use App\Http\Controllers\RSVPController;
 use App\Models\Guest;
 use App\Http\Controllers\InviteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AwarriTtsController;
 
 // Home page
 Route::get('/', function () {
@@ -13,6 +14,7 @@ Route::get('/', function () {
 
 // Guest Wish Submission
 Route::post('/submit-wish', [RSVPController::class, 'submitWish']);
+Route::post('/wish-Form', [RSVPController::class, 'submitWish']);
 
 // Download Personalized Card
 Route::get('/download-card/{token}', [RSVPController::class, 'downloadPersonalizedCard']);
@@ -29,6 +31,13 @@ Route::get('/download-invite', [RSVPController::class, 'downloadInvite']);
 
 // Personalized invite with token
 Route::get('/invite/{token}', [RSVPController::class, 'guestInvite']);
+
+
+
+Route::post('/tts/synthesize', [
+    AwarriTtsController::class,
+    'synthesize'
+])->name('tts.synthesize');
 
 // Admin dashboard 
 

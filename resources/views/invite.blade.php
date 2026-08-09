@@ -82,7 +82,7 @@
 <div class="card">
 
     <!-- BACKGROUND IMAGE -->
-    <img src="{{ public_path('images/card-template.png') }}" class="bg">
+    <img src="{{ public_path('images/IMG-20260624-WA0004.jpg') }}" class="bg">
 
     <!-- TEXT OVERLAY -->
     <div class="text top-text">
